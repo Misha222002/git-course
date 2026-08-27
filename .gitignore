@@ -1,2 +1,4 @@
 errors.txt
 /logs
+__pycache__/
+*.pyc
