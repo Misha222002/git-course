@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Защита проекта — РеспироПВ-2</title>
+  <style>
+    :root {
+      --bg: #1a221c;
+      --panel: #243028;
+      --text: #f2efe8;
+      --muted: #b7c0b4;
+      --bio: #3d8f74;
+      --tech: #4a7aa8;
+      --accent: #d4784a;
+      --line: rgba(242, 239, 232, 0.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background: radial-gradient(1200px 700px at 10% -10%, #2d4036 0%, var(--bg) 55%);
+      color: var(--text);
+      overflow: hidden;
+    }
+    .deck { height: 100%; position: relative; }
+    .slide {
+      display: none;
+      height: 100%;
+      padding: 48px 64px 72px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+    .slide.active { display: flex; }
+    .eyebrow {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--accent);
+    }
+    h1 { font-size: 42px; line-height: 1.15; max-width: 16ch; }
+    h2 { font-size: 34px; line-height: 1.2; }
+    h3 { font-size: 20px; color: var(--muted); font-weight: normal; }
+    p, li { font-size: 20px; line-height: 1.45; color: var(--text); }
+    ul { padding-left: 1.2em; display: grid; gap: 8px; }
+    .hero-sub { max-width: 42ch; color: var(--muted); font-size: 20px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .card {
+      background: color-mix(in srgb, var(--panel) 88%, black);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .card h4 { font-size: 18px; margin-bottom: 10px; }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-family: sans-serif; }
+    .tag.bio { background: color-mix(in srgb, var(--bio) 35%, transparent); color: #b6ebd8; }
+    .tag.tech { background: color-mix(in srgb, var(--tech) 35%, transparent); color: #c5dbf5; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 16px;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    th, td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; }
+    th { color: var(--muted); font-weight: 600; }
+    .nav {
+      position: fixed; left: 0; right: 0; bottom: 0; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; background: rgba(0,0,0,0.35); backdrop-filter: blur(8px);
+      font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; color: var(--muted);
+    }
+    .nav button {
+      background: transparent; color: var(--text); border: 1px solid var(--line);
+      border-radius: 8px; padding: 8px 14px; cursor: pointer;
+    }
+    .nav button:hover { border-color: var(--accent); color: var(--accent); }
+    .brand { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    img.fig { max-width: 100%; max-height: 52vh; object-fit: contain; border-radius: 10px; border: 1px solid var(--line); }
+    .center { align-items: center; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="deck" id="deck">
+
+    <section class="slide active center">
+      <div class="brand">МАИ · Биомедицинская техника</div>
+      <h1>Аппарат ИВЛ «РеспироПВ-2»</h1>
+      <p class="hero-sub">Принудительно-вспомогательные режимы SIMV / P-SIMV. Стационарный и портативный варианты.</p>
+      <p class="hero-sub">Лабораторная работа: устройство аппаратуры искусственной вентиляции лёгких</p>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Слайд 2</div>
+      <h2>Цель работы</h2>
+      <ul>
+        <li>Изучить строение респираторной системы и узлы аппаратов ИВЛ</li>
+        <li>Спроектировать МА и П с принудительно-вспомогательными режимами</li>
+        <li>Предусмотреть стационарное и переносное исполнения</li>
+        <li>Подготовить ТЗ, ТП, эскиз, спецификацию и материалы защиты</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап А</div>
+      <h2>Цель МА и П</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Главная функция</h4>
+          <p>Замена (полная/частичная) функции внешнего дыхания с синхронизацией аппаратных циклов с попытками пациента (SIMV / P-SIMV).</p>
+        </div>
+        <div class="card">
+          <h4>Вторая главная функция</h4>
+          <p>Мониторинг и регистрация параметров вентиляции и газообмена для безопасного ведения в ОРИТ и при транспортировке.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап А</div>
+      <h2>Задачи аппарата</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Измерить / зарегистрировать / отобразить</h4>
+          <p>Paw, поток, Vt, VE, f, PEEP, FiO₂; кривые и журнал тревог; статус питания.</p>
+        </div>
+        <div class="card">
+          <h4>Нормализовать / заменить</h4>
+          <p>Управление газообменом через Vt/Pinsp, f, PS, PEEP, FiO₂; замена работы дыхательных мышц.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап А</div>
+      <h2>Биологические и технические звенья</h2>
+      <img class="fig" src="../diagrams/scheme_links.png" alt="Схема звеньев" />
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап А</div>
+      <h2>Критерии качества (фрагмент)</h2>
+      <table>
+        <thead><tr><th>Критерий</th><th>Параметр</th><th>Цель</th></tr></thead>
+        <tbody>
+          <tr><td>Эффективность</td><td>Отклонение VE</td><td>≤ ±10 %</td></tr>
+          <tr><td>Синхронизация</td><td>Задержка триггера</td><td>≤ 100 мс</td></tr>
+          <tr><td>Безопасность</td><td>Предел Paw</td><td>≤ 60–80 см вод. ст.</td></tr>
+          <tr><td>Портатив</td><td>АКБ / масса</td><td>≥ 4 ч / ≤ 6 кг</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап Б</div>
+      <h2>Структурная схема</h2>
+      <img class="fig" src="../diagrams/block_scheme.png" alt="Структурная схема" />
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап Б</div>
+      <h2>Ключевые требования ТЗ</h2>
+      <ul>
+        <li>Режимы: SIMV, P-SIMV, PSV + апноэ-вентиляция</li>
+        <li>Vt 100–1000 мл; PEEP 0–20; FiO₂ 0,21–1,0</li>
+        <li>Стационар: 220 В, разводка газов, увлажнитель, UI ≥ 10"</li>
+        <li>Портатив: турбина + АКБ ≥ 4 ч, ≤ 6 кг, IP33, HME</li>
+        <li>Безопасность по ГОСТ Р МЭК 60601-1 / 60601-2-12</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап В</div>
+      <h2>Техническое предложение</h2>
+      <img class="fig" src="../diagrams/variants.png" alt="Варианты" />
+      <p>Принят <strong>вариант 3</strong> — гибридный модульный с унификацией узлов С и П.</p>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап Г</div>
+      <h2>Эскизный общий вид</h2>
+      <img class="fig" src="../diagrams/sketch_general.png" alt="Эскиз С и П" />
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап Г</div>
+      <h2>Дыхательный контур</h2>
+      <img class="fig" src="../diagrams/sketch_circuit.png" alt="Контур" />
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Этап Г</div>
+      <h2>Спецификация (ядро)</h2>
+      <table>
+        <thead><tr><th>Поз.</th><th>Узел</th><th>Примечание</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Блок управления БУ-РПВ</td><td>Общий для С и П</td></tr>
+          <tr><td>2</td><td>Турбина ТГ-40</td><td>Обязательна для П</td></tr>
+          <tr><td>7–8</td><td>НК + ПДКВ</td><td>Механический fail-safe</td></tr>
+          <tr><td>11 / 12</td><td>Увлажнитель / HME</td><td>С / П соответственно</td></tr>
+          <tr><td>13</td><td>АКБ 14,8 В</td><td>≥ 4 ч автономности</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="slide center">
+      <div class="eyebrow">Выводы</div>
+      <h2>Итоги проекта</h2>
+      <ul style="text-align:left; max-width: 52ch;">
+        <li>Сформулированы цель, задачи и критерии качества МА и П</li>
+        <li>Построены связи биологических и технических звеньев</li>
+        <li>Разработаны ТЗ и ТП; выбран гибридный вариант</li>
+        <li>Подготовлены эскизы и спецификация «РеспироПВ-2»</li>
+      </ul>
+      <p class="hero-sub" style="margin-top:12px">Спасибо за внимание. Готов ответить на вопросы.</p>
+    </section>
+  </div>
+
+  <div class="nav">
+    <button type="button" id="prev">← Назад</button>
+    <span id="indicator">1 / 1</span>
+    <button type="button" id="next">Вперёд →</button>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    let i = 0;
+    const indicator = document.getElementById("indicator");
+    function show(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+      indicator.textContent = `${i + 1} / ${slides.length}`;
+    }
+    document.getElementById("prev").onclick = () => show(i - 1);
+    document.getElementById("next").onclick = () => show(i + 1);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === " ") show(i + 1);
+      if (e.key === "ArrowLeft") show(i - 1);
+    });
+    show(0);
+  </script>
+</body>
+</html>
